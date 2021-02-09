@@ -1,14 +1,13 @@
 from django.contrib import admin
 from .models import Student
 
-@admin.register(Student)
-class StudentAdmin(admin.ModelAdmin):
-  list_display = ['id', 'name', 'roll']
+admin.site.register(Student)
 
-## OR simply 
 
-# admin.site.register(Search)
-# admin.site.register(Profile)
-# admin.site.register(Post)
-# admin.site.register(Likes)
+## OR to have list like view with specific columns 
+
+# @admin.register(Student)
+# class StudentAdmin(admin.ModelAdmin):
+#   list_display = ['id', 'name', 'roll']
+
 
