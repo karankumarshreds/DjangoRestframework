@@ -13,3 +13,11 @@ def student_detail(req, pk):
   jsonData = JSONRenderer().render(serializer.data)
   return HttpResponse(jsonData, content_type='application/json')
 
+# handling model query set 
+def student_list(req):
+  stus = Student.objects.all()
+  # convert to dict
+  serializer = SS(stus, many=True)
+  # convert to json 
+  jsonData = JSONRenderer().render(serializer.data)
+  return HttpResponse(jsonData, content_type='application/json')
