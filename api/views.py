@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.renderers import JSONRenderer
-from models import Student
-from serializers import StudentSerializer as SS
+from .models import Student
+from .serializers import StudentSerializer as SS
 
 # single model object 
 def student_detail(req):
@@ -10,3 +10,4 @@ def student_detail(req):
   serializer = SS(stu)
   jsonData = JSONRenderer().render(serializer.data)
   return HttpResponse(jsonData, content_type='application/json')
+
